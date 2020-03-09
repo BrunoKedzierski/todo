@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My tasks</title>
+</head>
+<body>
+    <p1>Dobry</p1>
+   {% for task in tasks %}
+     <h1>{{ task.task_title }}</h1>
+     <p>{{ task.task_desc }}</p>
+
+    {% endfor %}
+
+<form class="add-form" method="POST" action="{{ url_for('mytasks') }}">
+
+    <input name="task_title" value=""/>
+        <input name="task_desc" value=""/>
+      <button type="submit">Add a task</button>
+    </form>
+
+    <p>
+      {% if error %}
+        <strong class="error">Error: {{ error }}</strong>
+      {% endif %}
+
+
+    </p>
+
+</body>
+</html>
